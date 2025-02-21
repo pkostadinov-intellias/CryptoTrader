@@ -1,0 +1,177 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #18181b;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #fafafa;
+}
+
+.app {
+  min-height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Layout container */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1500px;
+  padding: 20px;
+}
+
+/* Navbar styles */
+.navbar-container {
+  background-color: #18181b;
+  width: 100%;
+}
+
+.navbar {
+  width: 100%;
+  padding: 16px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  gap: 20px;
+}
+
+.navbar li {
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar li:hover {
+  background-color: rgb(77, 71, 71);
+  color: #22c55e;
+}
+
+.navbar .active {
+  display: flex;
+  align-items: center;
+  color: #22c55e;
+}
+
+.navbar .logo {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar .logo .icon {
+  color: #22c55e;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fafafa;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  padding: 12px;
+  gap: 8px;
+}
+
+.input-group:focus-within {
+  outline: none;
+  border-color: #22c55e;
+}
+
+.input-group input {
+  width: 100%;
+  color: #fafafa;
+  background-color: black;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  user-select: none;
+}
+
+button {
+  background-color: #22c55e;
+  color: #18181b;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #26ee6c;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 16px 4%;
+  }
+
+  .navbar ul {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul {
+    justify-content: center;
+    width: 100%;
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar li {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+}
