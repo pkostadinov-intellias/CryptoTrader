@@ -1,5 +1,5 @@
 import React from "react";
-import { Crypto } from "../types/crypto";
+import { Crypto } from "../../types/crypto";
 
 const CryptoCard: React.FC<{ coin: Crypto }> = ({ coin }) => {
   return (

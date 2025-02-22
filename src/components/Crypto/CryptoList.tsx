@@ -1,7 +1,7 @@
 import CryptoCard from "./CryptoCard";
-import { useGetAllCoinsQuery } from "../services/cryptoApi";
-import Loader from "./Loader";
-import { filterCoins } from "../utils/filterCoins";
+import { useGetAllCoinsQuery } from "../../services/cryptoApi";
+import Loader from "../Loader";
+import { filterCoins } from "../../utils/filterCoins";
 
 interface CryptoListProps {
   searchParams?: string;

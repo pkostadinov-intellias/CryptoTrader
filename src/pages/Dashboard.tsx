@@ -1,5 +1,5 @@
 import SearchInput from "../components/SearchInput";
-import CryptoList from "../components/CryptoList";
+import CryptoList from "../components/Crypto/CryptoList";
 import { Suspense, useState } from "react";
 import Loader from "../components/Loader";
 
