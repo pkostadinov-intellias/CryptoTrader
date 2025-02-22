@@ -138,6 +138,61 @@ button:hover {
   background-color: #26ee6c;
 }
 
+.crypto-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.crypto-card {
+  background: #1e1e1e;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.crypto-card:hover {
+  transform: translateY(-5px);
+}
+
+.crypto-image {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.crypto-info h3 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.crypto-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00ff7f;
+}
+
+.crypto-rank {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.crypto-change {
+  font-size: 14px;
+}
+
+.positive {
+  color: #00ff7f;
+}
+
+.negative {
+  color: #ff3b30;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
   .navbar {

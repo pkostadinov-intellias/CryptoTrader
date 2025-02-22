@@ -1,11 +1,12 @@
 import SearchInput from "../components/SearchInput";
 import { useGetAllCoinsQuery } from "../services/cryptoApi";
+import CryptoCard from "../components/CryptoCard";
 
 export default function Dashboard() {
   const { data: coins, error, isLoading } = useGetAllCoinsQuery();
 
-  if (isLoading) return <div>loading...</div>;
-  if (error) return <div>error</div>;
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading data</div>;
 
   return (
     <>
@@ -13,28 +14,10 @@ export default function Dashboard() {
         <h1>Cryptocurrency Dashboard</h1>
         <SearchInput />
       </div>
-      <div>
-        <ul>
-          {coins?.map((coin) => (
-            <li
-              key={coin.id}
-              style={{ display: "flex", alignItems: "center", gap: "10px" }}
-            >
-              <img src={coin.image} alt={coin.name} width="30" />
-              <div>
-                <strong>
-                  {coin.name} ({coin.symbol})
-                </strong>{" "}
-                - ${coin.price.toLocaleString()}
-                <p>Market Cap Rank: #{coin.marketCapRank}</p>
-                <p>
-                  24h Change: ${coin.priceChange24h.toFixed(2)} (
-                  {coin.priceChangePercentage24h.toFixed(2)}%)
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+      <div className="crypto-container">
+        {coins?.map((coin) => (
+          <CryptoCard key={coin.id} coin={coin} />
+        ))}
       </div>
     </>
   );
