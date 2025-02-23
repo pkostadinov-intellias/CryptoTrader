@@ -1,3 +1,6 @@
+/*
+ * Global resets & defaults
+ */
 *,
 *::before,
 *::after {
@@ -96,6 +99,7 @@ body {
   flex-wrap: wrap;
 }
 
+/* Search input */
 .input-group {
   display: flex;
   flex-direction: row;
@@ -122,6 +126,7 @@ body {
   user-select: none;
 }
 
+/* General button styles */
 button {
   background-color: #22c55e;
   color: #18181b;
@@ -138,6 +143,26 @@ button:hover {
   background-color: #26ee6c;
 }
 
+/* Specific buy/sell button styles */
+.buy-button {
+  background-color: #22c55e;
+  color: #18181b;
+}
+
+.buy-button:hover {
+  background-color: #26ee6c;
+}
+
+.sell-button {
+  background-color: #ff3b30;
+  color: #fff;
+}
+
+.sell-button:hover {
+  background-color: #ff4f4f;
+}
+
+/* Cards (homepage) */
 .crypto-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -156,6 +181,7 @@ button:hover {
   gap: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out;
+  /* Start with transparent border to avoid layout shift */
   border: 1px solid transparent;
 }
 
@@ -214,6 +240,7 @@ button:hover {
   color: #ff3b30;
 }
 
+/* Dialog overlay */
 .dialog-overlay {
   position: fixed;
   top: 0;
@@ -227,6 +254,7 @@ button:hover {
   z-index: 1000;
 }
 
+/* Dialog content container */
 .dialog-content {
   background: #1e1e1e;
   padding: 20px;
@@ -241,6 +269,7 @@ button:hover {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Close button container */
 .close-button-container {
   width: 100%;
   display: flex;
@@ -255,37 +284,88 @@ button:hover {
   cursor: pointer;
 }
 
+/* Dialog sections */
+.dialog-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
+}
+
+.dialog-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Large crypto image */
 .crypto-image-large {
   width: 80px;
   height: 80px;
   margin-bottom: 10px;
 }
 
+/* Info block */
 .crypto-coin-info {
   display: flex;
   align-items: center;
   flex-direction: row;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
+/* Right side: chart + details */
+.dialog-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Chart area */
+.chart-container {
+  width: 100%;
+  height: 300px;
+  background-color: #27272a;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 18px;
+  margin-bottom: 20px;
+  box-shadow: inset 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.chart-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+}
+
+/* Stats grid on right side */
 .crypto-details {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
-  margin-top: 30px;
 }
 
+/* Cards inside dialog: simpler hover */
 .dialog-content .crypto-card {
   background: #27272a;
   padding: 20px;
   transition: transform 0.2s ease;
+  border: 1px solid transparent;
 }
 
 .dialog-content .crypto-card:hover {
   transform: none;
   cursor: default;
+  border-color: transparent;
 }
 
+/* Center text in each detail card */
 .dialog-content .crypto-info {
   display: flex;
   flex-direction: column;
@@ -293,16 +373,24 @@ button:hover {
   align-items: center;
 }
 
-.dialog-content .crypto-coin-info {
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
 .dialog-content .crypto-coin-info .crypto-info h3 {
   font-size: 24px;
   margin: 0;
 }
 
+.trading-buttons.bigger-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 16px;
+  justify-content: center; /* or flex-start, depending on your preference */
+}
+
+.bigger-button {
+  font-size: 16px;
+  padding: 16px 24px; /* Increase padding for a larger feel */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .dialog-content {
     width: 90%;
@@ -310,12 +398,17 @@ button:hover {
     overflow-y: auto;
   }
 
+  .dialog-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .crypto-details {
     grid-template-columns: 1fr;
   }
 }
 
-/* Responsive Adjustments */
+/* More small-screen adjustments */
 @media (max-width: 1024px) {
   .navbar {
     padding: 16px 4%;

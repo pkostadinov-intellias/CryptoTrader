@@ -8,4 +8,5 @@ export interface Crypto {
   marketCapRank: number;
   priceChange24h: number;
   priceChangePercentage24h: number;
+  balance?: number;
 }
