@@ -11,7 +11,7 @@ export const cryptoApi = createApi({
   }),
   endpoints: (builder) => ({
     getAllCoins: builder.query<Crypto[], void>({
-      query: () => "/coins/markets?vs_currency=usd&per_page=100",
+      query: () => "/coins/markets?vs_currency=usd&per_page=44",
       transformResponse: (response: any[]) =>
         response.map((coin) => ({
           id: coin.id,

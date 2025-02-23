@@ -1,12 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { cryptoApi } from "../services/cryptoApi";
+import { portfolioSlice } from "./portfolioSlice";
 
 export const store = configureStore({
   reducer: {
-    [cryptoApi.reducerPath]: cryptoApi.reducer
+    [cryptoApi.reducerPath]: cryptoApi.reducer,
+    portfolio: portfolioSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(cryptoApi.middleware)
+    getDefaultMiddleware().concat(cryptoApi.middleware),
+  devTools: true
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

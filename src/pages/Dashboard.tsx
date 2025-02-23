@@ -1,7 +1,7 @@
 import SearchInput from "../components/SearchInput";
 import CryptoList from "../components/Crypto/CryptoList";
-import { Suspense, useState } from "react";
-import Loader from "../components/Loader";
+import { useState } from "react";
+import CryptoDialog from "../components/Crypto/CryptoDialog";
 
 export default function Dashboard() {
   const [searchParams, setSearchParams] = useState<string>("");
@@ -16,9 +16,8 @@ export default function Dashboard() {
         <h1>Cryptocurrency Dashboard</h1>
         <SearchInput onChange={handleSearch} />
       </div>
-      <Suspense fallback={<Loader />}>
-        <CryptoList searchParams={searchParams} />
-      </Suspense>
+      <CryptoList searchParams={searchParams} />
+      <CryptoDialog />
     </>
   );
 }

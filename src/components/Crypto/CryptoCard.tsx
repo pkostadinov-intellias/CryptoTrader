@@ -1,23 +1,34 @@
 import React from "react";
 import { Crypto } from "../../types/crypto";
+import { useDialog } from "../../context/DialogContext";
+import { TrendingDown, TrendingUp } from "lucide-react";
 
-const CryptoCard: React.FC<{ coin: Crypto }> = ({ coin }) => {
+interface CryptoCardProps {
+  coin: Crypto;
+}
+
+const CryptoCard: React.FC<CryptoCardProps> = ({ coin }) => {
+  const { openDialog } = useDialog();
+
   return (
-    <div className="crypto-card">
-      <img src={coin.image} alt={coin.name} className="crypto-image" />
+    <div className="crypto-card" onClick={() => openDialog(coin)}>
       <div className="crypto-info">
-        <h3>
-          {coin.name} ({coin.symbol})
+        <img src={coin.image} alt={coin.name} className="crypto-image" />
+        <div>
+          <h2>{coin.name}</h2>
+          <p>{coin.symbol}</p>
+        </div>
+      </div>
+      <div className="crypto-market-info">
+        <h2>${coin.price.toLocaleString()}</h2>
+        <h3
+          className={`crypto-change ${
+            coin.priceChange24h >= 0 ? "positive" : "negative"
+          }`}
+        >
+          {coin.priceChange24h >= 0 ? <TrendingUp /> : <TrendingDown />}
+          {coin.priceChangePercentage24h.toFixed(2)}%
         </h3>
-        <p className="crypto-price">${coin.price.toLocaleString()}</p>
-        <p className="crypto-rank">Market Cap Rank: #{coin.marketCapRank}</p>
-        <p className="crypto-change">
-          24h Change:{" "}
-          <span className={coin.priceChange24h >= 0 ? "positive" : "negative"}>
-            ${coin.priceChange24h.toFixed(2)} (
-            {coin.priceChangePercentage24h.toFixed(2)}%)
-          </span>
-        </p>
       </div>
     </div>
   );
