@@ -80,6 +80,49 @@ export const portfolioSlice = createSlice({
       }
 
       showToast(`Successfully sold ${quantity} ${coin.symbol}`, "success");
+    },
+
+    depositBalance: (state, action: PayloadAction<number>) => {
+      if (typeof action.payload !== "number" || isNaN(action.payload)) {
+        showToast("Deposit amount must be a valid number!", "error");
+        return;
+      }
+      if (action.payload <= 0) {
+        showToast("Deposit amount must be a positive number!", "error");
+        return;
+      }
+
+      state.balance += action.payload;
+      showToast(
+        `Successfully deposited $${action.payload.toFixed(2)}`,
+        "success"
+      );
+    },
+
+    withdrawBalance: (state, action: PayloadAction<number>) => {
+      if (typeof action.payload !== "number" || isNaN(action.payload)) {
+        showToast("Withdrawal amount must be a valid number!", "error");
+        return;
+      }
+      if (action.payload <= 0) {
+        showToast("Withdrawal amount must be a positive number!", "error");
+        return;
+      }
+      if (state.balance < action.payload) {
+        showToast(
+          `Insufficient balance! ${
+            state.balance === 0 ? "" : `Max withdrawal: ${state.balance}$`
+          }`,
+          "error"
+        );
+        return;
+      }
+
+      state.balance -= action.payload;
+      showToast(
+        `Successfully withdrew $${action.payload.toFixed(2)}`,
+        "success"
+      );
     }
   }
 });
@@ -94,5 +137,10 @@ export const selectInvestedCoins = createSelector(
     }))
 );
 
-export const { addCryptoCoin, removeCryptoCoin } = portfolioSlice.actions;
+export const {
+  addCryptoCoin,
+  removeCryptoCoin,
+  depositBalance,
+  withdrawBalance
+} = portfolioSlice.actions;
 export default portfolioSlice.reducer;
