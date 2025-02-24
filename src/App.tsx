@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import Portfolio from "./pages/Portfolio";
 import Profile from "./pages/Profile";
 import { DialogProvider } from "./context/DialogContext";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               </main>
             </div>
           </BrowserRouter>
+          <ToastContainer />
         </DialogProvider>
       </ReduxProvider>
     </>
