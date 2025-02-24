@@ -12,11 +12,11 @@ export default function BalanceActions() {
   const [withdrawAmount, setWithdrawAmount] = useState<number>(0);
 
   const handleDepositChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDepositAmount(parseFloat(e.target.value) || 0);
+    setDepositAmount(parseFloat(e.target.value));
   };
 
   const handleWithdrawChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setWithdrawAmount(parseFloat(e.target.value) || 0);
+    setWithdrawAmount(parseFloat(e.target.value));
   };
 
   const handleDeposit = () => {
@@ -36,6 +36,7 @@ export default function BalanceActions() {
   return (
     <div className="crypto-container">
       <div className="portfolio-card">
+        <h2>Deposite Funds</h2>
         <TextField
           type="number"
           icon={Wallet}
@@ -47,6 +48,8 @@ export default function BalanceActions() {
       </div>
 
       <div className="portfolio-card">
+        <h2>Withdraw Funds</h2>
+
         <TextField
           type="number"
           icon={CircleDollarSign}
