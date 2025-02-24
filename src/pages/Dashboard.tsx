@@ -2,21 +2,34 @@ import SearchInput from "../components/SearchInput";
 import CryptoList from "../components/Crypto/CryptoList";
 import { useState } from "react";
 import CryptoDialog from "../components/Crypto/CryptoDialog";
+import { useGetAllCoinsQuery } from "../services/cryptoApi";
+import Loader from "../components/Loader";
 
 export default function Dashboard() {
+  const { data: coins, error, isLoading } = useGetAllCoinsQuery();
   const [searchParams, setSearchParams] = useState<string>("");
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchParams(e.target.value);
-  };
+  if (error) {
+    return (
+      <h1>
+        We've encountered an issue with crypto data. Please try again later.
+      </h1>
+    );
+  }
 
   return (
     <>
       <div className="page-header">
         <h1>Cryptocurrency Dashboard</h1>
-        <SearchInput onChange={handleSearch} />
+        <SearchInput onChange={(e) => setSearchParams(e.target.value)} />
       </div>
-      <CryptoList searchParams={searchParams} />
+
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <CryptoList searchParams={searchParams} coins={coins} />
+      )}
+
       <CryptoDialog />
     </>
   );

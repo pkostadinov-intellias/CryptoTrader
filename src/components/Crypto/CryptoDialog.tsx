@@ -12,6 +12,14 @@ const CryptoDialog: React.FC = () => {
   const priceChangeClass =
     selectedCoin.priceChangePercentage24h >= 0 ? "positive" : "negative";
 
+  const handleBuy = () => {
+    dispatch(addCryptoCoin({ coin: selectedCoin, quantity: 1 }));
+  };
+
+  const handleSell = () => {
+    dispatch(removeCryptoCoin({ coin: selectedCoin, quantity: 1 }));
+  };
+
   return (
     <div className="dialog-overlay" onClick={closeDialog}>
       <div className="dialog-content" onClick={(e) => e.stopPropagation()}>
@@ -76,15 +84,12 @@ const CryptoDialog: React.FC = () => {
             </div>
 
             <div className="trading-buttons bigger-buttons">
-              <button
-                className="buy-button bigger-button"
-                onClick={() => dispatch(addCryptoCoin(selectedCoin))}
-              >
+              <button className="buy-button bigger-button" onClick={handleBuy}>
                 Buy 1 {selectedCoin.symbol.toUpperCase()}
               </button>
               <button
                 className="sell-button bigger-button"
-                onClick={() => dispatch(removeCryptoCoin(selectedCoin))}
+                onClick={handleSell}
               >
                 Sell 1 {selectedCoin.symbol.toUpperCase()}
               </button>

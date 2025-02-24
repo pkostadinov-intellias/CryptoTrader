@@ -390,6 +390,24 @@ button:hover {
   padding: 16px 24px; /* Increase padding for a larger feel */
 }
 
+.portfolio-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.balance-info,
+.invested-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.balance-info .icon,
+.invested-info .icon {
+  color: #22c55e;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .dialog-content {

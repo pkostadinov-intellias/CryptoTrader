@@ -2,7 +2,7 @@ import { Crypto } from "../types/crypto";
 
 export const filterCoins = (
   coins: Crypto[] | undefined,
-  searchParams: string
+  searchParams: string | undefined
 ): Crypto[] => {
   if (!coins) return [];
 
