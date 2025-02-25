@@ -3,7 +3,7 @@ import { useAppSelector, usePortfolioSelector } from "../stores/hooks";
 import CryptoDialog from "../components/Crypto/CryptoDialog";
 import { selectInvestedCoins } from "../stores/portfolioSlice";
 import PortfolioInfo from "../components/Portfolio/PortfolioInfo";
-import Reminder from "../components/Portfolio/Reminder";
+import Reminder from "../components/shared/Reminder";
 
 export default function Portfolio() {
   const portfolio = usePortfolioSelector();

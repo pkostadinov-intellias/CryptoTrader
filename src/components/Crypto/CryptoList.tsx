@@ -1,7 +1,7 @@
 import CryptoCard from "./CryptoCard";
 import { filterCoins } from "../../utils/filterCoins";
 import { Crypto } from "../../types/crypto";
-import Reminder from "../Portfolio/Reminder";
+import Reminder from "../shared/Reminder";
 
 interface CryptoListProps {
   coins: Crypto[] | undefined;

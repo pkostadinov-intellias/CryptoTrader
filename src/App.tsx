@@ -8,7 +8,7 @@ import Portfolio from "./pages/Portfolio";
 import Profile from "./pages/Profile";
 import { DialogProvider } from "./context/DialogContext";
 import { ToastContainer } from "react-toastify";
-import Reminder from "./components/Portfolio/Reminder";
+import Reminder from "./components/shared/Reminder";
 
 function App() {
   return (
