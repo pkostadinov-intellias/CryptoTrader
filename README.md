@@ -31,7 +31,7 @@ Start the development server:
 npm run dev
 ```
 
-The app will be accessible at `http://localhost:3000/`.
+The app will be accessible at `http://localhost:5173/`.
 
 ## Pages Overview
 
