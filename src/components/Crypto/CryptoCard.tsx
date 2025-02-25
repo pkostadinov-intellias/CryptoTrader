@@ -1,6 +1,5 @@
 import React from "react";
 import { Crypto } from "../../types/crypto";
-import { useDialog } from "../../context/DialogContext";
 import { TrendingDown, TrendingUp } from "lucide-react";
 
 interface CryptoCardProps {
@@ -8,10 +7,8 @@ interface CryptoCardProps {
 }
 
 const CryptoCard: React.FC<CryptoCardProps> = ({ coin }) => {
-  const { openDialog } = useDialog();
-
   return (
-    <div className="crypto-card" onClick={() => openDialog(coin)}>
+    <>
       <div className="crypto-info">
         <img src={coin.image} alt={coin.name} className="crypto-image" />
         <div>
@@ -30,7 +27,7 @@ const CryptoCard: React.FC<CryptoCardProps> = ({ coin }) => {
           {coin.priceChangePercentage24h.toFixed(2)}%
         </h3>
       </div>
-    </div>
+    </>
   );
 };
 

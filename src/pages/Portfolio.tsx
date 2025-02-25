@@ -1,9 +1,9 @@
-import CryptoList from "../components/Crypto/CryptoList";
 import { useAppSelector, usePortfolioSelector } from "../stores/hooks";
 import CryptoDialog from "../components/Crypto/CryptoDialog";
 import { selectInvestedCoins } from "../stores/portfolioSlice";
 import PortfolioInfo from "../components/Portfolio/PortfolioInfo";
 import Reminder from "../components/shared/Reminder";
+import PortfolioList from "../components/Portfolio/PortfolioList";
 
 export default function Portfolio() {
   const portfolio = usePortfolioSelector();
@@ -22,7 +22,8 @@ export default function Portfolio() {
         linkPath="/profile"
       />
 
-      <CryptoList coins={investedCoins} />
+      <PortfolioList coins={investedCoins} />
+
       <CryptoDialog />
     </>
   );

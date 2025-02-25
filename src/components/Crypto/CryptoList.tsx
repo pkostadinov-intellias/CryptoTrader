@@ -1,7 +1,7 @@
 import CryptoCard from "./CryptoCard";
 import { filterCoins } from "../../utils/filterCoins";
 import { Crypto } from "../../types/crypto";
-import Reminder from "../shared/Reminder";
+import { useDialog } from "../../context/DialogContext";
 
 interface CryptoListProps {
   coins: Crypto[] | undefined;
@@ -10,23 +10,15 @@ interface CryptoListProps {
 
 export default function CryptoList({ searchParams, coins }: CryptoListProps) {
   const filteredCoins = filterCoins(coins, searchParams);
+  const { openDialog } = useDialog();
 
   return (
-    <>
-      {coins!.length > 0 ? (
-        <div className="crypto-container">
-          {filteredCoins.map((coin) => (
-            <CryptoCard key={coin.id} coin={coin} />
-          ))}
+    <div className="crypto-container">
+      {filteredCoins.map((coin) => (
+        <div className="crypto-card" onClick={() => openDialog(coin)}>
+          <CryptoCard key={coin.id} coin={coin} />
         </div>
-      ) : (
-        <Reminder
-          condition={true}
-          message="You have no crypto holdings. Start trading now in"
-          linkText="Dashboard"
-          linkPath="/"
-        />
-      )}
-    </>
+      ))}
+    </div>
   );
 }

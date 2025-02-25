@@ -187,6 +187,13 @@ button:hover {
   border: 1px solid transparent;
 }
 
+.holdings-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
 .balance-action {
   border: 1px solid #22c55e;
 }
