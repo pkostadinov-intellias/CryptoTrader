@@ -2,13 +2,10 @@ import { Provider as ReduxProvider } from "react-redux";
 import { store } from "./stores/store";
 import "./index.css";
 import Navbar from "./layout/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router";
-import Dashboard from "./pages/Dashboard";
-import Portfolio from "./pages/Portfolio";
-import Profile from "./pages/Profile";
+import { BrowserRouter } from "react-router";
 import { DialogProvider } from "./context/DialogContext";
 import { ToastContainer } from "react-toastify";
-import Reminder from "./components/shared/Reminder";
+import AppRoutes from "./layout/AppRoutes";
 
 function App() {
   return (
@@ -21,22 +18,7 @@ function App() {
                 <Navbar />
               </div>
               <main className="container">
-                <Routes>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/portfolio" element={<Portfolio />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route
-                    path="*"
-                    element={
-                      <Reminder
-                        condition={true}
-                        message="404 - This page is missing. Go to"
-                        linkText="Dashboard"
-                        linkPath="/"
-                      />
-                    }
-                  />
-                </Routes>
+                <AppRoutes />
               </main>
             </div>
           </BrowserRouter>
