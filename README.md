@@ -1,7 +1,3 @@
-Here's the updated **README** with instructions on setting up the `.env` file:
-
----
-
 # **Crypto Trader App**
 
 ## **Introduction**
