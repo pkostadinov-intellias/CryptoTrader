@@ -2,28 +2,12 @@ import CryptoList from "../components/Crypto/CryptoList";
 import { useAppSelector, usePortfolioSelector } from "../stores/hooks";
 import CryptoDialog from "../components/Crypto/CryptoDialog";
 import { selectInvestedCoins } from "../stores/portfolioSlice";
-import { Link } from "react-router";
 import PortfolioInfo from "../components/Portfolio/PortfolioInfo";
+import Reminder from "../components/Portfolio/Reminder";
 
 export default function Portfolio() {
   const portfolio = usePortfolioSelector();
   const investedCoins = useAppSelector(selectInvestedCoins);
-
-  const renderLowBalance = () => {
-    return (
-      portfolio.balance === 0 && (
-        <h2 style={{ margin: 20 }}>
-          Your balance is low. Deposit more funds in{" "}
-          <Link
-            style={{ textDecoration: "none", color: "#22c55e" }}
-            to="/profile"
-          >
-            Profile.
-          </Link>
-        </h2>
-      )
-    );
-  };
 
   return (
     <>
@@ -31,7 +15,13 @@ export default function Portfolio() {
         <h1>My Crypto Portfolio</h1>
         <PortfolioInfo />
       </div>
-      {renderLowBalance()}
+      <Reminder
+        condition={Math.floor(portfolio.balance) === 0}
+        message="Your balance is low. Deposit more funds in"
+        linkText="Profile"
+        linkPath="/profile"
+      />
+
       <CryptoList coins={investedCoins} />
       <CryptoDialog />
     </>

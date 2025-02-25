@@ -8,6 +8,7 @@ import Portfolio from "./pages/Portfolio";
 import Profile from "./pages/Profile";
 import { DialogProvider } from "./context/DialogContext";
 import { ToastContainer } from "react-toastify";
+import Reminder from "./components/Portfolio/Reminder";
 
 function App() {
   return (
@@ -24,6 +25,17 @@ function App() {
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/portfolio" element={<Portfolio />} />
                   <Route path="/profile" element={<Profile />} />
+                  <Route
+                    path="*"
+                    element={
+                      <Reminder
+                        condition={true}
+                        message="404 - This page is missing. Go to"
+                        linkText="Dashboard"
+                        linkPath="/"
+                      />
+                    }
+                  />
                 </Routes>
               </main>
             </div>
