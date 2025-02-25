@@ -29,10 +29,7 @@ export default function Portfolio() {
     <>
       <div className="page-header">
         <h1>My Crypto Portfolio</h1>
-        <PortfolioInfo
-          balance={portfolio.balance}
-          invested={portfolio.invested}
-        />
+        <PortfolioInfo />
       </div>
       {renderLowBalance()}
       <CryptoList coins={investedCoins} />

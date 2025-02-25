@@ -1,14 +1,9 @@
 import { Wallet, CircleDollarSign } from "lucide-react";
+import { usePortfolioSelector } from "../../stores/hooks";
 
-interface PortfolioInfoProps {
-  balance: number;
-  invested: number;
-}
+export default function PortfolioInfo() {
+  const { balance, invested } = usePortfolioSelector();
 
-export default function PortfolioInfo({
-  balance,
-  invested
-}: PortfolioInfoProps) {
   return (
     <div className={`portfolio-info`}>
       <div className="balance-info">

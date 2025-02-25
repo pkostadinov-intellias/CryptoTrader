@@ -11,7 +11,7 @@ export default function Navbar() {
       <Link to="/" className="nav-link">
         <h3 className="logo">
           <LineChart className="icon" />
-          CryptoTracker
+          CryptoTrader
         </h3>
       </Link>
 

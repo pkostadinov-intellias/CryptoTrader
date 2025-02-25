@@ -10,3 +10,8 @@ export interface Crypto {
   priceChangePercentage24h: number;
   balance?: number;
 }
+
+export interface CryptoChartData {
+  date: string;
+  price: number;
+}

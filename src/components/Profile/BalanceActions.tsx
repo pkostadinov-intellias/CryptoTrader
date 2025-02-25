@@ -35,7 +35,7 @@ export default function BalanceActions() {
 
   return (
     <div className="crypto-container">
-      <div className="portfolio-card">
+      <div className="portfolio-card balance-action">
         <h2>Deposite Funds</h2>
         <TextField
           type="number"
@@ -47,7 +47,7 @@ export default function BalanceActions() {
         <button onClick={handleDeposit}>Deposit Balance</button>
       </div>
 
-      <div className="portfolio-card">
+      <div className="portfolio-card balance-action">
         <h2>Withdraw Funds</h2>
 
         <TextField

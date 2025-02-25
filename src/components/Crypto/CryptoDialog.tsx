@@ -2,10 +2,13 @@ import React from "react";
 import { useDialog } from "../../context/DialogContext";
 import { useAppDispatch } from "../../stores/hooks";
 import { addCryptoCoin, removeCryptoCoin } from "../../stores/portfolioSlice";
+import CryptoChart from "./CryptoChart";
+import { generateCryptoChartData } from "../../utils/generateCryptoData";
 
 const CryptoDialog: React.FC = () => {
   const { isOpen, selectedCoin, closeDialog } = useDialog();
   const dispatch = useAppDispatch();
+  const chartData = generateCryptoChartData(selectedCoin?.price);
 
   if (!isOpen || !selectedCoin) return null;
 
@@ -46,7 +49,7 @@ const CryptoDialog: React.FC = () => {
             </div>
 
             <div className="chart-container">
-              <div className="chart-placeholder">Chart Goes Here</div>
+              <CryptoChart chartData={chartData} />
             </div>
 
             <div className="crypto-details">

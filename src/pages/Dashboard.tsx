@@ -4,6 +4,7 @@ import CryptoDialog from "../components/Crypto/CryptoDialog";
 import { useGetAllCoinsQuery } from "../services/cryptoApi";
 import Loader from "../components/shared/Loader";
 import TextField from "../components/shared/TextField";
+import PortfolioInfo from "../components/Portfolio/PortfolioInfo";
 
 export default function Dashboard() {
   const { data: coins, error, isLoading } = useGetAllCoinsQuery();
@@ -25,6 +26,7 @@ export default function Dashboard() {
           placeholder="Search name..."
           onChange={(e) => setSearchParams(e.target.value)}
         />
+        <PortfolioInfo />
       </div>
 
       {isLoading ? (
