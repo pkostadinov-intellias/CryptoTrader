@@ -15,7 +15,11 @@ export default function CryptoList({ searchParams, coins }: CryptoListProps) {
   return (
     <div className="crypto-container">
       {filteredCoins.map((coin) => (
-        <div className="crypto-card" onClick={() => openDialog(coin)}>
+        <div
+          key={coin.id}
+          className="crypto-card"
+          onClick={() => openDialog(coin)}
+        >
           <CryptoCard key={coin.id} coin={coin} />
         </div>
       ))}

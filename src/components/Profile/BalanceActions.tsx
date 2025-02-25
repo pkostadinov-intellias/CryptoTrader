@@ -12,11 +12,13 @@ export default function BalanceActions() {
   const [withdrawAmount, setWithdrawAmount] = useState<number>(0);
 
   const handleDepositChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDepositAmount(parseFloat(e.target.value));
+    const value = e.target.value === "" ? 0 : parseFloat(e.target.value);
+    setDepositAmount(value >= 0 ? value : 0);
   };
 
   const handleWithdrawChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setWithdrawAmount(parseFloat(e.target.value));
+    const value = e.target.value === "" ? 0 : parseFloat(e.target.value);
+    setWithdrawAmount(value >= 0 ? value : 0);
   };
 
   const handleDeposit = () => {
