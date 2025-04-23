@@ -2,7 +2,7 @@
 
 ## **Introduction**
 
-Crypto Trader is a web application that allows users to **trade cryptocurrencies, view charts, manage their portfolio, and handle deposits and withdrawals**. Built using **React, Redux Toolkit, RTK Query, and Recharts**, it provides a seamless trading experience.
+Crypto Trader is a web application that allows users to **trade cryptocurrencies, view charts, manage their portfolio, and handle deposits and withdrawals**. Built using **React, Redux Toolkit, RTK Query, and Recharts**, it provides a seamless trading experience. ( mocked traded experience )
 
 ## **Features**
 
